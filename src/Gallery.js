@@ -128,7 +128,7 @@ class Gallery extends React.Component {
     }
     else {
       return (
-        <div id='Gallery' className='clearfix' ref={(c) => this._gallery = c}>
+        <div id='Gallery' className={'clearfix ' + this.props.className} ref={(c) => this._gallery = c}>
           {photoPreviewNodes}
           <Lightbox
             currentImage={this.state.currentImage}
@@ -165,12 +165,14 @@ Gallery.propTypes = {
   },
   disableLightbox: React.PropTypes.bool,
   maxHeight: React.PropTypes.number,
+  className: React.PropTypes.string,
 }
 Gallery.defaultProps = {
   lightboxShowImageCount: false,
   backdropClosesModal: true,
   disableLightbox: false,
-  maxHeight: 300
+  maxHeight: 300,
+  className: '',
 }
 // Gallery image style
 const style = {
