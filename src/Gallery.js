@@ -15,12 +15,12 @@ class Gallery extends React.Component {
     this.openLightbox = this.openLightbox.bind(this)
   }
   componentDidMount() {
-    this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) })
+    this.setState({ containerWidth: Math.floor(this._gallery.clientWidth - 10) })
     window.addEventListener('resize', this.handleResize)
   }
   componentDidUpdate() {
-    if (this._gallery.clientWidth !== this.state.containerWidth) {
-      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) })
+    if (Math.floor(this._gallery.clientWidth - 10) !== this.state.containerWidth) {
+      this.setState({ containerWidth: Math.floor(this._gallery.clientWidth - 10) })
     }
   }
   componentWillUnmount() {
@@ -29,7 +29,7 @@ class Gallery extends React.Component {
   }
   handleResize(e) {
     if (this.unmounted) return
-    this.setState({ containerWidth: Math.floor(this._gallery.clientWidth) })
+    this.setState({ containerWidth: Math.floor(this._gallery.clientWidth - 10) })
   }
   openLightbox(index, event) {
     if (this.unmounted) return
@@ -59,7 +59,7 @@ class Gallery extends React.Component {
     })
   }
   render() {
-    var rowLimit = Math.floor(this.state.containerWidth / 250) + 1
+    var rowLimit = Math.floor(this.state.containerWidth / 220) + 1
     var photoPreviewNodes = []
     var contWidth = this.state.containerWidth - (rowLimit * 4) /* 4px for margin around each image */
     contWidth = Math.floor(contWidth - 24) // add some padding to prevent layout prob
