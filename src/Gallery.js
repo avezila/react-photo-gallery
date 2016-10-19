@@ -59,14 +59,8 @@ class Gallery extends React.Component {
     })
   }
   render() {
-    var rowLimit = 1,
-      photoPreviewNodes = []
-    if (this.state.containerWidth >= 480) {
-      rowLimit = 2
-    }
-    if (this.state.containerWidth >= 1024) {
-      rowLimit = 3
-    }
+    var rowLimit = Math.floor(this.state.containerWidth / 250) + 1
+    var photoPreviewNodes = []
     var contWidth = this.state.containerWidth - (rowLimit * 4) /* 4px for margin around each image */
     contWidth = Math.floor(contWidth - 24) // add some padding to prevent layout prob
     var remainder = this.props.photos.length % rowLimit
