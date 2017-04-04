@@ -22,15 +22,13 @@
     "eslint": "^1.2.1",
     "eslint-plugin-react": "^3.2.3",
     "gulp": "^3.9.0",
-    "jquery": "^2.1.4",
     "lodash": "^3.10.1",
-    "react-component-gulp-tasks": "^0.7.0",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react-component-gulp-tasks": "^0.7.0"
   },
   "peerDependencies": {
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react": "^15",
+    "react-dom": "^15",
+    "jquery": "^3"
   },
   "browserify-shim": {
     "react": "global:React"
